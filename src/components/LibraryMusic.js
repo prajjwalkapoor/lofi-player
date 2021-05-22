@@ -29,7 +29,6 @@ export default function LibraryMusic({
     });
     setMusic(activeMusic);
   };
-
   return (
     <div
       className={`track ${track.active ? "selected-music" : ""}`}
