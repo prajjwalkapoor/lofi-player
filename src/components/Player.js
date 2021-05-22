@@ -16,6 +16,7 @@ export default function Player({
   setMusic,
   setCurrentmusic,
 }) {
+  const [mp3url, setMp3url] = useState("");
   useEffect(() => {
     const activeMusic = music.map((mus) => {
       if (mus.id === currentMusic.id) {
@@ -31,6 +32,7 @@ export default function Player({
       }
     });
     setMusic(activeMusic);
+    getYoutubemp3(currentMusic.id);
   }, [currentMusic]);
 
   const [musicinfo, setMusicinfo] = useState({
@@ -79,9 +81,9 @@ export default function Player({
       seconds.toString().padStart(2, "0");
     return formatted;
   };
-  if (musicinfo.currentTime === musicinfo.duration) {
-    setIsplaying(false);
-  }
+  // if (musicinfo.currentTime === musicinfo.duration) {
+  //   setIsplaying(false);
+  // }
 
   if (isplaying) {
     audioRef.current.play();
@@ -101,9 +103,16 @@ export default function Player({
     if (direction === "skip-forward") {
       setCurrentmusic(music[(currentIndex + 1) % music.length]);
     }
-    console.log("next song" + currentIndex);
-    console.log("length" + music.length);
-    console.log((currentIndex - 1) % music.length);
+  };
+
+  const getYoutubemp3 = async (videoid) => {
+    const response = await fetch(
+      `https://yt-dl.prajjwalkapoor.repl.co/fetchAudio?videoURL=https://www.youtube.com/watch?v=${videoid}`
+    );
+    const data = await response.json();
+
+    setMp3url(data[0].url);
+    console.log(data);
   };
   return (
     <div className="player-container">
@@ -161,7 +170,10 @@ export default function Player({
         onTimeUpdate={timeUpdatehandler}
         onLoadedMetadata={timeUpdatehandler}
         ref={audioRef}
-        src={currentMusic.audio}
+        src={mp3url}
+        onEnded={() => {
+          trackSkippingHandler("skip-forward");
+        }}
       ></audio>
     </div>
   );

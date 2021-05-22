@@ -5,6 +5,7 @@ import "./components/Styles/app.scss";
 import LofiList from "./components/lofilist";
 import Library from "./components/Library";
 import Nav from "./components/Nav";
+import Landing from "./components/Landing";
 document.title = "Free Lofi Music Player";
 function App() {
   const [music, setMusic] = useState(LofiList);
@@ -13,16 +14,19 @@ function App() {
   const [librarystatus, setLibrarystatus] = useState(false);
   return (
     <div className="App">
+      {/* <Landing /> */}
       <Nav librarystatus={librarystatus} setLibrarystatus={setLibrarystatus} />
-      <Song currentMusic={currentmusic} isplaying={isplaying} />
-      <Player
-        currentMusic={currentmusic}
-        setCurrentmusic={setCurrentmusic}
-        isplaying={isplaying}
-        setIsplaying={setIsplaying}
-        music={music}
-        setMusic={setMusic}
-      />
+      <main className="main-container">
+        <Song currentMusic={currentmusic} isplaying={isplaying} />
+        <Player
+          currentMusic={currentmusic}
+          setCurrentmusic={setCurrentmusic}
+          isplaying={isplaying}
+          setIsplaying={setIsplaying}
+          music={music}
+          setMusic={setMusic}
+        />
+      </main>
       <Library
         librarystatus={librarystatus}
         music={music}

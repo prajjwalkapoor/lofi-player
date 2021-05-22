@@ -1,5 +1,4 @@
 import React from "react";
-
 export default function Song({ currentMusic, isplaying }) {
   return (
     <div className="song-container">

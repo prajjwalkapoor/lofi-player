@@ -6,7 +6,9 @@
   scrollbar-width: 7px;
   scrollbar-color: #005cc8 transparent;
 }
-
+.main-container {
+  width: clamp(700px 50%, 50%);
+}
 ::-webkit-scrollbar {
   width: 7px;
 }
@@ -27,3 +29,4 @@
 @import "./partials/library";
 @import "./partials/libraryMusic";
 @import "./partials/nav";
+@import "./partials/landing";

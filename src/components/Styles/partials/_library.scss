@@ -2,10 +2,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: clamp(700px, 22vw, 20rem);
+  width: 24%;
   height: 100%;
-  box-shadow: 2px 2px 50px rgb(192, 192, 192);
   display: flex;
+  border-right: 1px solid #111111;
   flex-direction: column;
   overflow-y: scroll;
   transform: translateX(-100%);
@@ -15,9 +15,33 @@
   scrollbar-width: 7px;
   scrollbar-color: #005cc8 transparent;
   z-index: 1;
+  .library-nav {
+    display: flex;
+    justify-content: space-evenly;
+    h2 {
+      padding: 2rem;
+    }
+    select {
+      margin: 1.7rem 10px;
+      height: 2.3rem;
+      border: 2px solid rgb(65, 65, 65);
+      border-radius: 4px;
+      font-size: 1rem;
+      background-color: white;
+      option {
+        background-color: #111111;
+        color: white;
+      }
+    }
+  }
+}
 
-  h2 {
-    padding: 2rem;
+@media only screen and (max-width: 1203px) {
+  .library-container {
+    width: 100%;
+  }
+  .library-nav {
+    margin-top: 2.5rem;
   }
 }
 
