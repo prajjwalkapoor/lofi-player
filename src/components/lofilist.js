@@ -6,7 +6,7 @@ export default function Lofilist() {
         "https://chillhop.com/wp-content/uploads/2021/04/cb0cc6270d7f2e1bb13e44e8832bd5c9b2a61080-1024x1024.jpg",
       artist: "Sleepermane x Casiio",
       id: "V9OTxxTZmDc",
-      active: true,
+      active: false,
       category: "hip-hop",
     },
     {

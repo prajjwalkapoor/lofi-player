@@ -5,7 +5,7 @@ import "./components/Styles/app.scss";
 import LofiList from "./components/lofilist";
 import Library from "./components/Library";
 import Nav from "./components/Nav";
-import Landing from "./components/Landing";
+// import Landing from "./components/Landing";
 document.title = "Free Lofi Music Player";
 function App() {
   const [music, setMusic] = useState(LofiList);

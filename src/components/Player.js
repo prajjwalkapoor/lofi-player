@@ -6,6 +6,7 @@ import {
   faAngleRight,
   faPause,
   faVolumeUp,
+  faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Player({
@@ -112,7 +113,6 @@ export default function Player({
     const data = await response.json();
 
     setMp3url(data[0].url);
-    console.log(data);
   };
   return (
     <div className="player-container">
@@ -152,12 +152,16 @@ export default function Player({
           size="2x"
         />
 
-        <FontAwesomeIcon
-          className="play"
-          icon={!isplaying ? faPlay : faPause}
-          size="2x"
-          onClick={audioPlayHandler}
-        />
+        {musicinfo.duration ? (
+          <FontAwesomeIcon
+            className="play"
+            icon={!isplaying ? faPlay : faPause}
+            size="2x"
+            onClick={audioPlayHandler}
+          />
+        ) : (
+          <FontAwesomeIcon icon={faSpinner} size="2x" className="spinner" />
+        )}
         <FontAwesomeIcon
           className="skip-forward"
           icon={faAngleRight}
