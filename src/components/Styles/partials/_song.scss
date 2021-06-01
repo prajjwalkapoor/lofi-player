@@ -5,16 +5,18 @@
   align-items: center;
   justify-content: center;
   img {
-    width: clamp(14rem, 25vw, 18rem);
-    height: clamp(14rem, 25vw, 18rem);
+    width: clamp(14rem, 25vw, 16rem);
+    height: clamp(14rem, 25vw, 16rem);
     border-radius: 50%;
     margin: 2rem 0;
   }
   h1 {
     padding: 0.5rem;
+    font-size: 1.5rem;
   }
   h4 {
     padding: 0.5rem;
+    font-size: 1rem;
     color: #4a4a4a;
   }
   h1,

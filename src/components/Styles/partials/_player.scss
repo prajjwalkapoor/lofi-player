@@ -11,6 +11,7 @@
     input {
       width: clamp(10rem, 100vw, 35rem);
       padding: 1rem 0;
+      -webkit-appearance: none;
     }
     p {
       padding: 1rem;

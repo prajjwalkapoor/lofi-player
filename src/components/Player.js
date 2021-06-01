@@ -17,6 +17,14 @@ export default function Player({
   setMusic,
   setCurrentmusic,
 }) {
+  for (let e of document.querySelectorAll(
+    'input[type="range"].slider-progress'
+  )) {
+    e.style.setProperty("--value", e.value);
+    e.style.setProperty("--min", e.min == "" ? "0" : e.min);
+    e.style.setProperty("--max", e.max == "" ? "100" : e.max);
+    e.addEventListener("input", () => e.style.setProperty("--value", e.value));
+  }
   const [mp3url, setMp3url] = useState("");
   useEffect(() => {
     const activeMusic = music.map((mus) => {
@@ -119,6 +127,7 @@ export default function Player({
       <div className="time-control">
         <p>{timeFormat(musicinfo.currentTime || 0)}</p>
         <input
+          className="styled-slider slider-progress"
           type="range"
           min={0}
           max={musicinfo.duration || 0}
@@ -137,7 +146,7 @@ export default function Player({
           />
         </label>
         <input
-          className="volume"
+          className="volume styled-slider slider-progress"
           id="volume"
           min={0}
           max={1}
